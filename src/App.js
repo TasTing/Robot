@@ -146,14 +146,24 @@ class Board extends React.Component {
       }
       if(this.state.cmd=="RIGHT"){
         if(this.state.xpos!=null||this.state.ypos!=null){
-          this.setState({ face: this.state.face + 1 })
+          let e = this.state.face + 1;
+          if (e < 4){
+            this.setState({ face: this.state.face + 1 })
+          } else {
+            this.setState({ face: 0 })
+          }
         } else {
           alert("Robot is not placed yet")
         }
       }
       if(this.state.cmd=="LEFT"){
         if(this.state.xpos!=null||this.state.ypos!=null){
-          this.setState({ face: this.state.face - 1 })
+          let e = this.state.face - 1;
+          if (e > -1){
+            this.setState({ face: this.state.face - 1 })
+          } else {
+            this.setState({ face: 3 })
+          }
         } else {
           alert("Robot is not placed yet")
         }
@@ -217,6 +227,7 @@ class Board extends React.Component {
           <div className="inputresult">{this.state.cmd}</div>
           <div>Your Output report is:</div>
           <div className="output">{this.state.report}</div>
+          <div>{this.state.face}</div>
         </div>
       </div>
     );
