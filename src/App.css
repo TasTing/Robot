@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  min-width: 600px;
 }
 
 .App-logo {
@@ -18,6 +19,24 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.usage .output{
+  font-size: 12px;
+  word-wrap: normal;
+}
+
+.square {
+  float:left;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  color:black;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
 
 .App-link {
   color: #61dafb;
