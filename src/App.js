@@ -9,6 +9,7 @@ class App extends React.Component {
         <h1>Robot Movement</h1>
         <div className='usage'>Usage:
           <div>PLACE X,Y,F</div>
+          <div>i,e: PLACE 0,0,EAST</div>
           <div>MOVE</div>
           <div>RIGHT</div>
           <div>LEFT</div>
@@ -62,7 +63,7 @@ class Board extends React.Component {
     })
   }
 
-  //switch for input
+  //Switch for input
   faceswitch(e){
     switch(e){
       case('WEST'):return 1;
@@ -91,6 +92,7 @@ class Board extends React.Component {
     this.setState({
         cmd:this.input.value.split(' ')[0]
     })
+    //TRY CATCH TO THROW EXCEPTIONS
     if (this.state.cmd=='PLACE'){
       try {
         this.setState({
@@ -103,6 +105,7 @@ class Board extends React.Component {
         console.error(e.message);
       }
     } else {
+      //CMDS NOT 'PLACE' DO NO REQUIRE STRING SPLITS
       if(this.state.cmd=="REPORT"){
         if(this.state.xpos!=null||this.state.ypos!=null){
           this.setState({
@@ -144,6 +147,8 @@ class Board extends React.Component {
           alert("Robot is not placed yet")
         }
       }
+
+      //ROTATE RIGHT
       if(this.state.cmd=="RIGHT"){
         if(this.state.xpos!=null||this.state.ypos!=null){
           let e = this.state.face + 1;
@@ -156,6 +161,7 @@ class Board extends React.Component {
           alert("Robot is not placed yet")
         }
       }
+      //ROTATE LEFT
       if(this.state.cmd=="LEFT"){
         if(this.state.xpos!=null||this.state.ypos!=null){
           let e = this.state.face - 1;
@@ -168,6 +174,7 @@ class Board extends React.Component {
           alert("Robot is not placed yet")
         }
       }
+      alert("Command not found, Please read USAGE.")
     }
   }
 
