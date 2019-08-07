@@ -233,7 +233,6 @@ class Board extends React.Component {
           <div className="inputresult">{this.state.cmd}</div>
           <div>Your Output report is:</div>
           <div className="output">{this.state.report}</div>
-          <div>{this.state.face}</div>
         </div>
       </div>
     );
