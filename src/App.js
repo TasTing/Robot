@@ -174,7 +174,6 @@ class Board extends React.Component {
           alert("Robot is not placed yet")
         }
       }
-      alert("Command not found, Please read USAGE.")
     }
   }
 
